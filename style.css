@@ -131,6 +131,7 @@
             padding-bottom: 8px;
             border-bottom: 1px solid rgba(255, 255, 255, 0.08);
             position: relative;
+            word-wrap: break-word;
         }
 
         .sidebar-title::after {
@@ -145,14 +146,20 @@
         }
 
         /* Contact */
+        .contact-list {
+            display: flex;
+            flex-direction: column;
+            gap: 11px;
+        }
+
         .contact-item {
             display: flex;
             align-items: flex-start;
             gap: 10px;
-            margin-bottom: 11px;
             font-size: 11px;
             line-height: 1.5;
             color: var(--sidebar-text);
+            min-width: 0;
         }
 
         .contact-icon {
@@ -574,5 +581,260 @@
             @page {
                 size: A4;
                 margin: 0;
+            }
+        }
+
+        /* ===== RESPONSIVE MEDIA QUERIES ===== */
+        @media screen and (max-width: 850px) {
+            body {
+                padding: 15px 10px;
+            }
+
+            .resume {
+                width: 100%;
+                max-width: 720px;
+                min-height: auto;
+                flex-direction: row;
+                /* Keep side-by-side layout */
+                box-shadow:
+                    0 15px 30px -10px rgba(0, 0, 0, 0.15),
+                    0 0 0 1px rgba(0, 0, 0, 0.05);
+                border-radius: 12px;
+            }
+
+            .resume::before {
+                height: 5px;
+                border-top-left-radius: 12px;
+                border-top-right-radius: 12px;
+            }
+
+            .sidebar {
+                width: 35%;
+                padding: 30px 16px 20px;
+            }
+
+            .sidebar::after {
+                display: block;
+            }
+
+            /* Photo Responsiveness */
+            .photo-wrapper {
+                max-width: 110px;
+                width: 100%;
+                margin-bottom: 20px;
+            }
+
+            .profile-pic {
+                width: 100%;
+                height: auto;
+            }
+
+            /* Contact styling */
+            .contact-list {
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .contact-item {
+                font-size: 10px;
+            }
+
+            .contact-item span,
+            .contact-item a {
+                word-break: break-all;
+                overflow-wrap: anywhere;
+            }
+
+            /* Skills */
+            .skill-chip {
+                font-size: 9px;
+                padding: 4px 8px;
+            }
+
+            /* Languages */
+            .lang-name {
+                font-size: 10.5px;
+            }
+
+            .lang-level {
+                font-size: 8.5px;
+            }
+
+            /* Main Content scaling */
+            .main {
+                width: 65%;
+                padding: 30px 20px 20px;
+            }
+
+            .header h1 {
+                font-size: 22px;
+            }
+
+            .header-role {
+                font-size: 12px;
+            }
+
+            .section-title {
+                font-size: 11.5px;
+            }
+
+            .profile-text {
+                font-size: 11px;
+            }
+
+            .exp-title {
+                font-size: 12px;
+            }
+
+            .exp-company {
+                font-size: 10.5px;
+            }
+
+            .exp-list li {
+                font-size: 10.5px;
+            }
+
+            .edu-title {
+                font-size: 11.5px;
+            }
+
+            .edu-school {
+                font-size: 10.5px;
+            }
+
+            .exp-header,
+            .edu-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 4px;
+            }
+
+            .exp-date,
+            .edu-date {
+                align-self: flex-start;
+                margin-top: 2px;
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+            body {
+                padding: 5px;
+            }
+
+            .resume {
+                border-radius: 8px;
+            }
+
+            .resume::before {
+                border-top-left-radius: 8px;
+                border-top-right-radius: 8px;
+                height: 4px;
+            }
+
+            .sidebar {
+                padding: 20px 10px 15px;
+                width: 38%;
+                /* Slightly wider sidebar on mobile to keep contact/skills legible */
+            }
+
+            .photo-wrapper {
+                max-width: 90px;
+                margin-bottom: 15px;
+            }
+
+            .contact-item {
+                font-size: 9px;
+                gap: 6px;
+            }
+
+            .contact-icon {
+                width: 12px;
+                height: 12px;
+                min-width: 12px;
+            }
+
+            .skill-chip {
+                font-size: 8px;
+                padding: 3px 6px;
+                border-radius: 4px;
+            }
+
+            .lang-name {
+                font-size: 9.5px;
+            }
+
+            .lang-level {
+                font-size: 7.5px;
+            }
+
+            .lang-bar {
+                height: 3px;
+            }
+
+            .main {
+                width: 62%;
+                padding: 20px 12px 15px;
+            }
+
+            .header h1 {
+                font-size: 17px;
+            }
+
+            .header-role {
+                font-size: 10px;
+            }
+
+            .section-title {
+                font-size: 10px;
+                gap: 6px;
+            }
+
+            .section-icon {
+                width: 13px;
+                height: 13px;
+            }
+
+            .profile-text {
+                font-size: 9.5px;
+                line-height: 1.65;
+            }
+
+            .exp-title {
+                font-size: 11px;
+            }
+
+            .exp-company {
+                font-size: 9.5px;
+            }
+
+            .exp-list li {
+                font-size: 9.5px;
+                line-height: 1.5;
+                padding-left: 10px;
+            }
+
+            .edu-title {
+                font-size: 10.5px;
+            }
+
+            .edu-school {
+                font-size: 9.5px;
+            }
+
+            .experience-item,
+            .edu-item {
+                padding-left: 12px;
+            }
+
+            .experience-item::before,
+            .edu-item::before {
+                width: 6px;
+                height: 6px;
+                top: 5px;
+            }
+
+            .experience-item::after {
+                left: 2.5px;
             }
         }
