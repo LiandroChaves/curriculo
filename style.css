@@ -545,6 +545,8 @@
             flex-direction: column;
             border-left: 3px solid var(--accent);
             transition: transform 0.2s, box-shadow 0.2s;
+            text-decoration: none;
+            color: inherit;
         }
 
         .cert-item:hover {
